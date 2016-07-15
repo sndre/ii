@@ -15,6 +15,7 @@
 		6C82F0831D38A3CE001BEB29 /* iiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82F0821D38A3CE001BEB29 /* iiTests.swift */; };
 		6C82F08E1D38A3CE001BEB29 /* iiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82F08D1D38A3CE001BEB29 /* iiUITests.swift */; };
 		6C82F09C1D38AB45001BEB29 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82F09B1D38AB45001BEB29 /* SettingsViewController.swift */; };
+		6C82F09E1D395D4B001BEB29 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82F09D1D395D4B001BEB29 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		6C82F08D1D38A3CE001BEB29 /* iiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iiUITests.swift; sourceTree = "<group>"; };
 		6C82F08F1D38A3CE001BEB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C82F09B1D38AB45001BEB29 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		6C82F09D1D395D4B001BEB29 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = Views/MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		6C82F06C1D38A3CE001BEB29 /* ii */ = {
 			isa = PBXGroup;
 			children = (
+				6C82F09F1D395D57001BEB29 /* Views */,
 				6C82F06D1D38A3CE001BEB29 /* AppDelegate.swift */,
 				6C82F06F1D38A3CE001BEB29 /* TipViewController.swift */,
 				6C82F0711D38A3CE001BEB29 /* Main.storyboard */,
@@ -126,6 +129,14 @@
 				6C82F08F1D38A3CE001BEB29 /* Info.plist */,
 			);
 			path = iiUITests;
+			sourceTree = "<group>";
+		};
+		6C82F09F1D395D57001BEB29 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6C82F09D1D395D4B001BEB29 /* MainView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C82F0701D38A3CE001BEB29 /* TipViewController.swift in Sources */,
+				6C82F09E1D395D4B001BEB29 /* MainView.swift in Sources */,
 				6C82F06E1D38A3CE001BEB29 /* AppDelegate.swift in Sources */,
 				6C82F09C1D38AB45001BEB29 /* SettingsViewController.swift in Sources */,
 			);

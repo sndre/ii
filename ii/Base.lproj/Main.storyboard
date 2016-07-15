@@ -13,10 +13,49 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="MainView" customModule="ii" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6FL-6h-yzD">
+                                <rect key="frame" x="0.0" y="64" width="600" height="268"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mKE-N4-opY">
+                                        <rect key="frame" x="8" y="98" width="584" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="60"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="amountChanged:" destination="8bC-Xf-vdC" eventType="editingChanged" id="G4V-Nw-K6e"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="mKE-N4-opY" firstAttribute="leading" secondItem="6FL-6h-yzD" secondAttribute="leading" constant="8" id="Nor-Ha-iHZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="mKE-N4-opY" secondAttribute="trailing" constant="8" id="nzw-tc-iGU"/>
+                                    <constraint firstItem="mKE-N4-opY" firstAttribute="centerY" secondItem="6FL-6h-yzD" secondAttribute="centerY" id="tuv-s2-lU1"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6O-Ch-Ief">
+                                <rect key="frame" x="0.0" y="332" width="600" height="268"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I6O-Ch-Ief" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2nb-TR-mTd"/>
+                            <constraint firstItem="6FL-6h-yzD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="95F-Wd-Hva"/>
+                            <constraint firstItem="I6O-Ch-Ief" firstAttribute="height" secondItem="6FL-6h-yzD" secondAttribute="height" id="SBq-dC-Wt3"/>
+                            <constraint firstAttribute="trailing" secondItem="I6O-Ch-Ief" secondAttribute="trailing" id="SzV-gY-lOU"/>
+                            <constraint firstItem="I6O-Ch-Ief" firstAttribute="top" secondItem="6FL-6h-yzD" secondAttribute="bottom" id="d2h-L4-LxR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I6O-Ch-Ief" secondAttribute="bottom" id="gJH-GL-agk"/>
+                            <constraint firstAttribute="trailing" secondItem="6FL-6h-yzD" secondAttribute="trailing" id="u3h-cm-cQh"/>
+                            <constraint firstItem="6FL-6h-yzD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="w6h-xx-QMH"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="amountField" destination="mKE-N4-opY" id="M2m-7j-EA7"/>
+                            <outlet property="equalHeightConstraint" destination="SBq-dC-Wt3" id="EVF-O0-1l1"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="ii%" id="jdq-sD-ZEt">
                         <barButtonItem key="backBarButtonItem" title="Back" id="IRz-dH-8DJ"/>
@@ -26,6 +65,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mainView" destination="8bC-Xf-vdC" id="d9p-BP-8jY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
