@@ -14,6 +14,7 @@
 		6C82F0781D38A3CE001BEB29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C82F0761D38A3CE001BEB29 /* LaunchScreen.storyboard */; };
 		6C82F0831D38A3CE001BEB29 /* iiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82F0821D38A3CE001BEB29 /* iiTests.swift */; };
 		6C82F08E1D38A3CE001BEB29 /* iiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82F08D1D38A3CE001BEB29 /* iiUITests.swift */; };
+		6C82F09C1D38AB45001BEB29 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82F09B1D38AB45001BEB29 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		6C82F0891D38A3CE001BEB29 /* iiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C82F08D1D38A3CE001BEB29 /* iiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iiUITests.swift; sourceTree = "<group>"; };
 		6C82F08F1D38A3CE001BEB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C82F09B1D38AB45001BEB29 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				6C82F0741D38A3CE001BEB29 /* Assets.xcassets */,
 				6C82F0761D38A3CE001BEB29 /* LaunchScreen.storyboard */,
 				6C82F0791D38A3CE001BEB29 /* Info.plist */,
+				6C82F09B1D38AB45001BEB29 /* SettingsViewController.swift */,
 			);
 			path = ii;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				6C82F0701D38A3CE001BEB29 /* TipViewController.swift in Sources */,
 				6C82F06E1D38A3CE001BEB29 /* AppDelegate.swift in Sources */,
+				6C82F09C1D38AB45001BEB29 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
