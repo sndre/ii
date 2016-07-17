@@ -21,9 +21,9 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] Use banking style number input - type numbers only, the last two digits typed represent cents
-- [x] Listen to NSCurrentLocaleDidChangeNotification event to automatically reformat currency field using new locale
-- [x] Listen to UIContentSizeCategoryDidChangeNotification event to automatically adjust dynamic fonts
+- [x] Using banking style number input - type numbers only, the last two digits typed represent cents
+- [x] Listening to NSCurrentLocaleDidChangeNotification event to automatically reformat currency field using new locale
+- [x] Listening to UIContentSizeCategoryDidChangeNotification event to automatically adjust dynamic fonts
 
 ## Video Walkthrough 
 
