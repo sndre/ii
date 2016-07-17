@@ -9,18 +9,49 @@
 import UIKit
 
 class MainView: UIView, UITextFieldDelegate {
-
-    @IBOutlet weak var equalHeightConstraint: NSLayoutConstraint!
     
+    var amount: Double = 0
+    
+    let percents = [0.15, 0.18, 0.20, 0.25]
+    
+    var currentPercent: Double {
+        return percents[percentField.selectedSegmentIndex]
+    }
+
     @IBOutlet weak var amountField: UITextField!
+    
+    @IBOutlet weak var amountFieldHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var amountFieldVerticalPosition: NSLayoutConstraint!
+
+    @IBOutlet weak var percentField: UISegmentedControl!
+    
+    @IBOutlet weak var bottomView: UIView!
+    
+    @IBOutlet weak var tipAmount: UILabel!
+    
+    @IBOutlet weak var onePersonAmountWithTip: UILabel!
+    
+    @IBOutlet weak var twoPersonsAmountWithTip: UILabel!
+    
+    @IBOutlet weak var threePersonsAmountWithTip: UILabel!
+    
+    @IBOutlet weak var fourPersonsAmountWithTip: UILabel!
     
     @IBAction func amountChanged(sender: AnyObject) {
         formatAmount()
+        computeTips()
+        layoutViews()
         resetCursorPosition()
     }
     
-    func changeHeight() {
-        
+    @IBAction func percentChanged(sender: AnyObject) {
+        computeTips()
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layoutViews()
     }
     
     func activateAmountField() {
@@ -42,12 +73,8 @@ class MainView: UIView, UITextFieldDelegate {
     func formatAmount() {
         let before = amountField.text
 
-        let amount = convertToDigitsOnly(amountField?.text)
-        
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
-        formatter.locale = NSLocale.currentLocale()
-        amountField.text = formatter.stringFromNumber(amount)
+        amount = convertToDigitsOnly(amountField?.text)
+        amountField.text = formatCurrency(amount)
 
         let after = amountField.text
         print("before: \(before); after: \(after)")
@@ -60,6 +87,41 @@ class MainView: UIView, UITextFieldDelegate {
         let digitsOnlyString = digitsOnlyArray.joinWithSeparator("")
         let amount = Double(digitsOnlyString)
         return amount == nil ? 0 : amount! / 100
+    }
+    
+    func formatCurrency(amount: Double) -> String {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
+        return formatter.stringFromNumber(amount)!
+    }
+    
+    func computeTips() {
+        let tip = amount * currentPercent
+        let amountWithTip = amount + tip
+        
+        tipAmount.text = formatCurrency(tip)
+        onePersonAmountWithTip.text = formatCurrency(amountWithTip)
+        twoPersonsAmountWithTip.text = formatCurrency(amountWithTip / 2)
+        threePersonsAmountWithTip.text = formatCurrency(amountWithTip / 3)
+        fourPersonsAmountWithTip.text = formatCurrency(amountWithTip / 4)
+    }
+    
+    func layoutViews() {
+        self.layoutIfNeeded()
+        
+        let zeroAmount = amount == 0
+        let amountNonZeroHeight = CGFloat(160)
+        let amountZeroVerticalOffset = CGFloat(-24)
+        
+        amountFieldHeight.constant = zeroAmount ? (self.superview?.bounds.height)! / 2 : amountNonZeroHeight
+        amountFieldVerticalPosition.constant = zeroAmount ? 0 : amountZeroVerticalOffset
+        
+        UIView.animateWithDuration(0.3) {
+            self.percentField.alpha = zeroAmount ? 0 : 1
+            self.bottomView.alpha = zeroAmount ? 0 : 1
+            self.layoutIfNeeded()
+        }
     }
     
     func resetCursorPosition() {

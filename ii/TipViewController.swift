@@ -32,6 +32,7 @@ class TipViewController: UIViewController, UITextFieldDelegate {
     
     func receiveRegionFormatChangeNotification() {
         mainView.formatAmount()
+        mainView.computeTips()
     }
 
 }
