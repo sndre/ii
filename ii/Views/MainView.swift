@@ -38,7 +38,10 @@ class MainView: UIView, UITextFieldDelegate {
     
     @IBOutlet weak var fourPersonsAmountWithTip: UILabel!
     
+    @IBOutlet var bodyStyleLabels: [UILabel]!
+    
     @IBAction func amountChanged(sender: AnyObject) {
+        parseAmount()
         formatAmount()
         computeTips()
         layoutViews()
@@ -70,10 +73,24 @@ class MainView: UIView, UITextFieldDelegate {
         amountField.inputAccessoryView = keyboardToolbar
     }
     
+    func setInitialTip(tipIndex: Int) {
+        percentField.selectedSegmentIndex = tipIndex
+    }
+    
+    func setInitialAmount(amount: Double) {
+        self.amount = amount
+        formatAmount()
+    }
+    
+    func parseAmount() {
+        amount = convertToDigitsOnly(amountField?.text)
+        Settings.lastAmount = amount
+        Settings.lastAmountUpdatedOn = NSDate()
+    }
+    
     func formatAmount() {
         let before = amountField.text
 
-        amount = convertToDigitsOnly(amountField?.text)
         amountField.text = formatCurrency(amount)
 
         let after = amountField.text
@@ -127,5 +144,15 @@ class MainView: UIView, UITextFieldDelegate {
     func resetCursorPosition() {
         let newPosition = amountField.endOfDocument
         amountField.selectedTextRange = amountField.textRangeFromPosition(newPosition, toPosition: newPosition)
+    }
+    
+    func adjustFonts() {
+        for label in bodyStyleLabels {
+            label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        }
+        
+        onePersonAmountWithTip.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
+        twoPersonsAmountWithTip.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle2)
+        threePersonsAmountWithTip.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle3)
     }
 }
